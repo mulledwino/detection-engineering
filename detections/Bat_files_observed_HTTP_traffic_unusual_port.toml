@@ -4,7 +4,7 @@ author = ["Liane Mulvaney"]
 description = "Detects .bat file extensions on any dest port that isn't port 80 using Zeek HTTP data"
 from = "now-6m" 
 name = "Bat files observed in HTTP traffic on unusual port"
-
+risk_score = 27
 severity = "low"
 type = "query"
 rule_id = "0001"
