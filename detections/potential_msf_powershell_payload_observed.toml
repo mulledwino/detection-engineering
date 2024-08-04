@@ -16,7 +16,7 @@ event.dataset: "windows.sysmon_operational" and process.command_line: "\"cmd.exe
 [[rule.threat]]
 framework = "MITRE ATT&CK"
 [[rule.threat.technique]]
-id = "T1059"
+id = "T1055"
 name = "Command and Scripting Interpreter"
 reference = "https://attack.mitre.org/techniques/T1046/"
 [[rule.threat.technique.subtechnique]]
@@ -25,6 +25,6 @@ name = "PowerShell"
 reference = "https://attack.mitre.org/techniques/T1059/001/"
 
 [rule.threat.tactic]
-id = "TA0001"
+id = "TA0002"
 name = "Execution"
 reference = "https://attack.mitre.org/tactics/TA0002/"
