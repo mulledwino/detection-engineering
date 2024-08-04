@@ -4,7 +4,7 @@ author = ["Liane Mulvaney"]
 description = "Triggers when more than 1000 queries to a web server have been observed in a 5 min window"
 from = "now-6m" # this is the default value, change as needed
 name = "Exessive Web Traffic"
-risk_score = 25
+
 severity = "low"
 type = "threshold"
 rule_id = "0002"
