@@ -11,8 +11,7 @@ headers= {
 
 mitreData = requests.get(url, headers=headers).json()
 mitreMapped = {}
-
-#def getMapping(mitreData)
+failure = 0
 
 for object in mitreData['objects']:
     tactics = []
@@ -116,11 +115,5 @@ for file in alert_data:
         except KeyError:
             pass
 
-
-
-
-    #print(file + " : " +  tactic + " : "  + technique_id + " : " +  subtechnique_id)
-
-
-                    # print(file + " : " +  tactic + " : "  + technique_id + " : " + technique_name+ " : " +  subtechnique_id + " : "  + subtechnique_name)
-    
+if failure != 0:
+    sys.exit(1)
