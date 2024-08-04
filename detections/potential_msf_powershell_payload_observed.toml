@@ -1,0 +1,30 @@
+
+[rule]
+author = ["Liane Mulvaney"]
+description = "This alert triggers via sysmon data on a string of text that occurs out of the box in msfvenom"
+from = "now-6m"
+name = "Potential MSF Powershell Payload observed"
+risk_score = 25
+severity = "low"
+type = "query"
+rule_id = "0003"
+query = '''
+event.dataset: "windows.sysmon_operational" and process.command_line: "\"cmd.exe\"" and message: "*powershell - w hidden -nop -c $a= *"
+'''
+
+
+[[rule.threat]]
+framework = "MITRE ATT&CK"
+[[rule.threat.technique]]
+id = "T1059"
+name = "Command and Scripting Interpreter"
+reference = "https://attack.mitre.org/techniques/T1046/"
+[[rule.threat.technique.subtechnique]]
+id = "T1059.001"
+name = "PowerShell"
+reference = "https://attack.mitre.org/techniques/T1059/001/"
+
+[rule.threat.tactic]
+id = "TA0002"
+name = "Execution"
+reference = "https://attack.mitre.org/tactics/TA0002/"

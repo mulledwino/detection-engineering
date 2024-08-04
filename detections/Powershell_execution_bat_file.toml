@@ -1,0 +1,30 @@
+
+[rule]
+author = ["Liane Mulvaney"]
+description = "From looking at the sysmon_operational logs, we're triggering on powershell running through a bat file execution"
+from = "now-6m"
+name = "Powershell execution via a BAT file"
+risk_score = 21
+severity = "low"
+type = "query"
+rule_id = "0004"
+query = '''
+event.dataset: "windows.sysmon_operational" and process.command_line: powershell* and process.command_line : *bat* and process.parent.name cmd.exe
+'''
+
+
+[[rule.threat]] 
+framework = "MITRE ATT&CK"
+[[rule.threat.technique]]
+id = "T1059"
+name = "Command and Scripting Interpreter"
+reference = "https://attack.mitre.org/techniques/T1059/"
+[[rule.threat.technique.subtechnique]]
+id = "T1059.001"
+name = "PowerShell"
+reference = "https://attack.mitre.org/techniques/T1059/001/"
+
+[rule.threat.tactic]
+id = "TA0002"
+name = "Execution"
+reference = "https://attack.mitre.org/tactics/TA0002/"
