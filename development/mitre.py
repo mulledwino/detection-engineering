@@ -37,7 +37,7 @@ for object in mitreData['objects']:
             
 
 
-# print(mitreMapped['T1123']['name'])
+
 
 alert_data = {}
 
